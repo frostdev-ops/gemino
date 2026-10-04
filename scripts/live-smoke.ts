@@ -157,6 +157,8 @@ interface Snapshot {
       rendered: boolean;
       maxHeight: string;
       childFilter: string;
+      hovered: boolean;
+      focusWithin: boolean;
       mask: string;
     } | null;
   };
@@ -249,6 +251,8 @@ function measure(): Snapshot {
             rendered: rendered(rootEl),
             maxHeight: rootStyle?.maxHeight ?? '',
             childFilter: firstChild ? getComputedStyle(firstChild).filter : '',
+            hovered: rootEl.matches(':hover'),
+            focusWithin: rootEl.matches(':focus-within'),
             mask: rootStyle?.maskImage || rootStyle?.webkitMaskImage || '',
           }
         : null,
@@ -449,7 +453,17 @@ function modeChecks(mode: Mode, s: Snapshot, base: Snapshot): Check[] {
     case 'blur-hover':
     case 'blur-click':
       checks.push(pass('block still laid out', root.rendered, fmt(root.rect)));
-      checks.push(pass('content blurred', root.childFilter.includes('blur('), root.childFilter));
+      checks.push(
+        pass(
+          'content blurred',
+          root.childFilter.includes('blur(')
+            ? true
+            : root.hovered && mode === 'blur-hover'
+              ? null
+              : false,
+          `${root.childFilter} (hovered=${root.hovered}, focus-within=${root.focusWithin})`,
+        ),
+      );
       if (mode === 'blur-click') {
         checks.push(
           pass(
@@ -518,8 +532,12 @@ async function interact(page: Page, mode: Mode, shotTag: string): Promise<Check[
       checks.push(
         pass(
           'moving away restores the blur',
-          (away.aio.root?.childFilter ?? '').includes('blur('),
-          away.aio.root?.childFilter ?? '',
+          (away.aio.root?.childFilter ?? '').includes('blur(')
+            ? true
+            : away.aio.root?.hovered
+              ? null // a headed window under a real mouse cursor keeps reporting :hover
+              : false,
+          `${away.aio.root?.childFilter} (hovered=${away.aio.root?.hovered}, focus-within=${away.aio.root?.focusWithin})`,
         ),
       );
     } else if (mode === 'blur-click') {

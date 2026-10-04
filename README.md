@@ -15,12 +15,12 @@ It finds the AI Overview, the AI Mode tab and buttons, and Gemini promos on Goog
 
 ## What you can do
 
-| | In Gemino |
-| --- | --- |
+|                                      | In Gemino                                                                                                            |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
 | **Choose how the AI Overview looks** | Show it, hide it, fold it into a bar, keep a short preview, or blur it until you reveal it. Collapse is the default. |
-| **Quiet the rest of the AI** | Hide the AI Mode tab, the button in the search box, and Gemini promos. |
-| **Search the web only** | Send a search to Google's plain Web results, which have no AI Overview. Images, News, and Videos stay as they are. |
-| **Turn it off for a moment** | `Alt+Shift+G` toggles Gemino. The popup can show everything on the current page. |
+| **Quiet the rest of the AI**         | Hide the AI Mode tab, the button in the search box, and Gemini promos.                                               |
+| **Search the web only**              | Send a search to Google's plain Web results, which have no AI Overview. Images, News, and Videos stay as they are.   |
+| **Turn it off for a moment**         | `Alt+Shift+G` toggles Gemino. The popup can show everything on the current page.                                     |
 
 ## Load it
 
