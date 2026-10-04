@@ -1,0 +1,605 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B4C928A3071E51E00630B1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C92893071E51E00630B1F /* AppDelegate.swift */; };
+		3B4C928E3071E51E00630B1F /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C928C3071E51E00630B1F /* Main.html */; };
+		3B4C92903071E51E00630B1F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C928F3071E51E00630B1F /* Icon.png */; };
+		3B4C92923071E51E00630B1F /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C92913071E51E00630B1F /* Style.css */; };
+		3B4C92943071E51E00630B1F /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C92933071E51E00630B1F /* Script.js */; };
+		3B4C92963071E51E00630B1F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C92953071E51E00630B1F /* ViewController.swift */; };
+		3B4C92993071E51E00630B1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C92973071E51E00630B1F /* Main.storyboard */; };
+		3B4C929B3071E51E00630B1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C929A3071E51E00630B1F /* Assets.xcassets */; };
+		3B4C92A23071E51E00630B1F /* Gemino Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3B4C92A13071E51E00630B1F /* Gemino Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3B4C92A73071E51E00630B1F /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C92A63071E51E00630B1F /* SafariWebExtensionHandler.swift */; };
+		3B4C92BB3071E51E00630B1F /* service-worker-loader.js in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C92B33071E51E00630B1F /* service-worker-loader.js */; };
+		3B4C92BC3071E51E00630B1F /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C92B43071E51E00630B1F /* icons */; };
+		3B4C92BD3071E51E00630B1F /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C92B53071E51E00630B1F /* manifest.json */; };
+		3B4C92BE3071E51E00630B1F /* rules in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C92B63071E51E00630B1F /* rules */; };
+		3B4C92BF3071E51E00630B1F /* background.html in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C92B73071E51E00630B1F /* background.html */; };
+		3B4C92C03071E51E00630B1F /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C92B83071E51E00630B1F /* _locales */; };
+		3B4C92C13071E51E00630B1F /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C92B93071E51E00630B1F /* assets */; };
+		3B4C92C23071E51E00630B1F /* src in Resources */ = {isa = PBXBuildFile; fileRef = 3B4C92BA3071E51E00630B1F /* src */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3B4C92A33071E51E00630B1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B4C927E3071E51E00630B1F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B4C92A03071E51E00630B1F;
+			remoteInfo = "Gemino Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3B4C92AE3071E51E00630B1F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				3B4C92A23071E51E00630B1F /* Gemino Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3B4C92863071E51E00630B1F /* Gemino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gemino.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B4C92893071E51E00630B1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3B4C928D3071E51E00630B1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		3B4C928F3071E51E00630B1F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		3B4C92913071E51E00630B1F /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		3B4C92933071E51E00630B1F /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		3B4C92953071E51E00630B1F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3B4C92983071E51E00630B1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3B4C929A3071E51E00630B1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3B4C929C3071E51E00630B1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B4C92A13071E51E00630B1F /* Gemino Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Gemino Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B4C92A63071E51E00630B1F /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		3B4C92A83071E51E00630B1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B4C92B33071E51E00630B1F /* service-worker-loader.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "service-worker-loader.js"; path = "Resources/service-worker-loader.js"; sourceTree = "<group>"; };
+		3B4C92B43071E51E00630B1F /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = Resources/icons; sourceTree = "<group>"; };
+		3B4C92B53071E51E00630B1F /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = Resources/manifest.json; sourceTree = "<group>"; };
+		3B4C92B63071E51E00630B1F /* rules */ = {isa = PBXFileReference; lastKnownFileType = folder; name = rules; path = Resources/rules; sourceTree = "<group>"; };
+		3B4C92B73071E51E00630B1F /* background.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = background.html; path = Resources/background.html; sourceTree = "<group>"; };
+		3B4C92B83071E51E00630B1F /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _locales; path = Resources/_locales; sourceTree = "<group>"; };
+		3B4C92B93071E51E00630B1F /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = Resources/assets; sourceTree = "<group>"; };
+		3B4C92BA3071E51E00630B1F /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = Resources/src; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B4C92833071E51E00630B1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		3B4C929E3071E51E00630B1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B4C927D3071E51E00630B1F = {
+			isa = PBXGroup;
+			children = (
+				3B4C92883071E51E00630B1F /* Gemino */,
+				3B4C92A53071E51E00630B1F /* Gemino Extension */,
+				3B4C92873071E51E00630B1F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3B4C92873071E51E00630B1F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B4C92863071E51E00630B1F /* Gemino.app */,
+				3B4C92A13071E51E00630B1F /* Gemino Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B4C92883071E51E00630B1F /* Gemino */ = {
+			isa = PBXGroup;
+			children = (
+				3B4C92893071E51E00630B1F /* AppDelegate.swift */,
+				3B4C92953071E51E00630B1F /* ViewController.swift */,
+				3B4C92973071E51E00630B1F /* Main.storyboard */,
+				3B4C929A3071E51E00630B1F /* Assets.xcassets */,
+				3B4C929C3071E51E00630B1F /* Info.plist */,
+				3B4C928B3071E51E00630B1F /* Resources */,
+			);
+			path = Gemino;
+			sourceTree = "<group>";
+		};
+		3B4C928B3071E51E00630B1F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3B4C928C3071E51E00630B1F /* Main.html */,
+				3B4C928F3071E51E00630B1F /* Icon.png */,
+				3B4C92913071E51E00630B1F /* Style.css */,
+				3B4C92933071E51E00630B1F /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3B4C92A53071E51E00630B1F /* Gemino Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3B4C92B23071E51E00630B1F /* Resources */,
+				3B4C92A63071E51E00630B1F /* SafariWebExtensionHandler.swift */,
+				3B4C92A83071E51E00630B1F /* Info.plist */,
+			);
+			path = "Gemino Extension";
+			sourceTree = "<group>";
+		};
+		3B4C92B23071E51E00630B1F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3B4C92B33071E51E00630B1F /* service-worker-loader.js */,
+				3B4C92B43071E51E00630B1F /* icons */,
+				3B4C92B53071E51E00630B1F /* manifest.json */,
+				3B4C92B63071E51E00630B1F /* rules */,
+				3B4C92B73071E51E00630B1F /* background.html */,
+				3B4C92B83071E51E00630B1F /* _locales */,
+				3B4C92B93071E51E00630B1F /* assets */,
+				3B4C92BA3071E51E00630B1F /* src */,
+			);
+			name = Resources;
+			path = "Gemino Extension";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3B4C92853071E51E00630B1F /* Gemino */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B4C92AF3071E51E00630B1F /* Build configuration list for PBXNativeTarget "Gemino" */;
+			buildPhases = (
+				3B4C92823071E51E00630B1F /* Sources */,
+				3B4C92833071E51E00630B1F /* Frameworks */,
+				3B4C92843071E51E00630B1F /* Resources */,
+				3B4C92AE3071E51E00630B1F /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B4C92A43071E51E00630B1F /* PBXTargetDependency */,
+			);
+			name = Gemino;
+			productName = Gemino;
+			productReference = 3B4C92863071E51E00630B1F /* Gemino.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3B4C92A03071E51E00630B1F /* Gemino Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B4C92AB3071E51E00630B1F /* Build configuration list for PBXNativeTarget "Gemino Extension" */;
+			buildPhases = (
+				3B4C929D3071E51E00630B1F /* Sources */,
+				3B4C929E3071E51E00630B1F /* Frameworks */,
+				3B4C929F3071E51E00630B1F /* Resources */,
+			);
+			buildRules = (
+			);
+			name = "Gemino Extension";
+			productName = "Gemino Extension";
+			productReference = 3B4C92A13071E51E00630B1F /* Gemino Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3B4C927E3071E51E00630B1F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					3B4C92853071E51E00630B1F = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					3B4C92A03071E51E00630B1F = {
+						CreatedOnToolsVersion = 27.0;
+					};
+				};
+			};
+			buildConfigurationList = 3B4C92813071E51E00630B1F /* Build configuration list for PBXProject "Gemino" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3B4C927D3071E51E00630B1F;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 3B4C92873071E51E00630B1F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B4C92853071E51E00630B1F /* Gemino */,
+				3B4C92A03071E51E00630B1F /* Gemino Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3B4C92843071E51E00630B1F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				3B4C92903071E51E00630B1F /* Icon.png in Resources */,
+				3B4C92993071E51E00630B1F /* Main.storyboard in Resources */,
+				3B4C92943071E51E00630B1F /* Script.js in Resources */,
+				3B4C928E3071E51E00630B1F /* Main.html in Resources */,
+				3B4C929B3071E51E00630B1F /* Assets.xcassets in Resources */,
+				3B4C92923071E51E00630B1F /* Style.css in Resources */,
+			);
+		};
+		3B4C929F3071E51E00630B1F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				3B4C92C03071E51E00630B1F /* _locales in Resources */,
+				3B4C92BE3071E51E00630B1F /* rules in Resources */,
+				3B4C92C13071E51E00630B1F /* assets in Resources */,
+				3B4C92C23071E51E00630B1F /* src in Resources */,
+				3B4C92BB3071E51E00630B1F /* service-worker-loader.js in Resources */,
+				3B4C92BD3071E51E00630B1F /* manifest.json in Resources */,
+				3B4C92BF3071E51E00630B1F /* background.html in Resources */,
+				3B4C92BC3071E51E00630B1F /* icons in Resources */,
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B4C92823071E51E00630B1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				3B4C92963071E51E00630B1F /* ViewController.swift in Sources */,
+				3B4C928A3071E51E00630B1F /* AppDelegate.swift in Sources */,
+			);
+		};
+		3B4C929D3071E51E00630B1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				3B4C92A73071E51E00630B1F /* SafariWebExtensionHandler.swift in Sources */,
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3B4C92A43071E51E00630B1F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B4C92A03071E51E00630B1F /* Gemino Extension */;
+			targetProxy = 3B4C92A33071E51E00630B1F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3B4C928C3071E51E00630B1F /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B4C928D3071E51E00630B1F /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		3B4C92973071E51E00630B1F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B4C92983071E51E00630B1F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3B4C92A93071E51E00630B1F /* Debug configuration for PBXProject "Gemino" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3B4C92AA3071E51E00630B1F /* Release configuration for PBXProject "Gemino" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		3B4C92AC3071E51E00630B1F /* Debug configuration for PBXNativeTarget "Gemino Extension" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Gemino Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Gemino Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.frostdev.Gemino.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3B4C92AD3071E51E00630B1F /* Release configuration for PBXNativeTarget "Gemino Extension" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Gemino Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Gemino Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.frostdev.Gemino.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		3B4C92B03071E51E00630B1F /* Debug configuration for PBXNativeTarget "Gemino" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Gemino/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Gemino;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				INFOPLIST_KEY_NSViewGestureRecognizerIsExclusive = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.frostdev.Gemino;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3B4C92B13071E51E00630B1F /* Release configuration for PBXNativeTarget "Gemino" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Gemino/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Gemino;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				INFOPLIST_KEY_NSViewGestureRecognizerIsExclusive = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.frostdev.Gemino;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B4C92813071E51E00630B1F /* Build configuration list for PBXProject "Gemino" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B4C92A93071E51E00630B1F /* Debug configuration for PBXProject "Gemino" */,
+				3B4C92AA3071E51E00630B1F /* Release configuration for PBXProject "Gemino" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		3B4C92AB3071E51E00630B1F /* Build configuration list for PBXNativeTarget "Gemino Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B4C92AC3071E51E00630B1F /* Debug configuration for PBXNativeTarget "Gemino Extension" */,
+				3B4C92AD3071E51E00630B1F /* Release configuration for PBXNativeTarget "Gemino Extension" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		3B4C92AF3071E51E00630B1F /* Build configuration list for PBXNativeTarget "Gemino" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B4C92B03071E51E00630B1F /* Debug configuration for PBXNativeTarget "Gemino" */,
+				3B4C92B13071E51E00630B1F /* Release configuration for PBXNativeTarget "Gemino" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3B4C927E3071E51E00630B1F /* Project object */;
+	validationLevel = 1;
+}

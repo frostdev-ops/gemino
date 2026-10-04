@@ -33,7 +33,25 @@ npm run build
 
 In Chrome, open `chrome://extensions`, turn on Developer mode, and load the `dist/` folder. In Opera GX, do the same from `opera://extensions`.
 
-Safari needs the Mac app. On a Mac with Xcode, run `./scripts/package-safari.sh`, open `safari/Gemino/Gemino.xcodeproj`, and run the Gemino scheme. Then turn Gemino on in Safari → Settings → Extensions. A generated copy of that project is already in `safari/`.
+## Safari
+
+Safari loads Gemino from a Mac app, not from the Chrome zip. You need a Mac with Xcode.
+
+A generated project is already in the repo. Open it and run it:
+
+```sh
+open safari/Gemino/Gemino.xcodeproj
+```
+
+In Xcode, choose the Gemino scheme and press Run. When the app opens, choose **Quit and Open Safari Extensions Preferences**, then turn Gemino on.
+
+Rebuild the app after the extension changes:
+
+```sh
+./scripts/package-safari.sh
+```
+
+That builds `dist/`, adjusts the manifest for Safari, and replaces `safari/` using `xcrun safari-web-extension-packager`. Then run the scheme again from Xcode so the app is signed with your development identity.
 
 `npm test` runs the unit tests. `npm run test:e2e` loads the built extension in Chromium against saved Google pages.
 

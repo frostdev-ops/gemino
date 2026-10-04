@@ -1,0 +1,19 @@
+/*
+ * Anti-flicker. Injected at document_start; keeps the AI Overview invisible until the main content
+ * script has processed the page (it then sets data-gemino-ready on <html>).
+ * Selectors mirror the aiOverview target in detect/targets.ts.
+ *
+ * The animation is a CSS-only failsafe: if the scripts never run, the block reappears after 3s.
+ */
+@keyframes gemino-failsafe {
+  to {
+    visibility: visible;
+  }
+}
+
+html:not([data-gemino-ready]) #Odp5De,
+html:not([data-gemino-ready]) #rcnt > :has(#Odp5De),
+html:not([data-gemino-ready]) #rso > :has(#Odp5De) {
+  visibility: hidden !important;
+  animation: gemino-failsafe 0s linear 3s forwards;
+}

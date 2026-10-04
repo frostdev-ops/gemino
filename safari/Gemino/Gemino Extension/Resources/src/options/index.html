@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gemino</title>
+    <script type="module" crossorigin src="/assets/index.html-YAIBBm68.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/settings-BB2iTyYc.js">
+    <link rel="modulepreload" crossorigin href="/assets/i18n-CyiXuKcD.js">
+    <link rel="stylesheet" crossorigin href="/assets/i18n-DepdijaY.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-D8YtH4Yu.css">
+  </head>
+  <body class="options">
+    <main>
+      <h1 data-i18n="optionsTitle">Gemino settings</h1>
+
+      <section>
+        <div class="row">
+          <label>
+            <input type="checkbox" id="enabled" />
+            <span data-i18n="optEnabled">Enabled</span>
+          </label>
+        </div>
+      </section>
+
+      <section>
+        <h2 data-i18n="optOverviewMode">AI Overview</h2>
+        <fieldset id="modeGroup">
+          <legend class="visually-hidden" data-i18n="optOverviewMode">AI Overview</legend>
+          <div class="segmented" role="radiogroup">
+            <label
+              ><input type="radio" name="mode" value="show" /><span data-i18n="modeShow"
+                >Show</span
+              ></label
+            >
+            <label
+              ><input type="radio" name="mode" value="hide" /><span data-i18n="modeHide"
+                >Hide</span
+              ></label
+            >
+            <label
+              ><input type="radio" name="mode" value="collapse" /><span data-i18n="modeCollapse"
+                >Collapse</span
+              ></label
+            >
+            <label
+              ><input type="radio" name="mode" value="minimize" /><span data-i18n="modeMinimize"
+                >Minimize</span
+              ></label
+            >
+            <label
+              ><input type="radio" name="mode" value="blur" /><span data-i18n="modeBlur"
+                >Blur</span
+              ></label
+            >
+          </div>
+        </fieldset>
+
+        <div class="row" data-for="minimize">
+          <label for="previewHeight" data-i18n="optMinimizeHeight">Minimized preview height</label>
+          <span class="inline">
+            <input type="range" id="previewHeight" step="10" />
+            <output id="previewHeightValue" for="previewHeight"></output>
+          </span>
+        </div>
+        <div class="row" data-for="blur">
+          <label for="blurStrength" data-i18n="optBlurStrength">Blur strength</label>
+          <span class="inline">
+            <input type="range" id="blurStrength" step="1" />
+            <output id="blurStrengthValue" for="blurStrength"></output>
+          </span>
+        </div>
+        <div class="row" data-for="blur">
+          <label for="blurReveal" data-i18n="optBlurReveal">Reveal blurred AI Overview</label>
+          <select id="blurReveal">
+            <option value="hover" data-i18n="revealHover">On hover</option>
+            <option value="click" data-i18n="revealClick">On click</option>
+          </select>
+        </div>
+      </section>
+
+      <section>
+        <div class="row">
+          <label>
+            <input type="checkbox" id="hideAiModeEntryPoints" />
+            <span data-i18n="optHideAiMode">Hide AI Mode buttons and tabs</span>
+          </label>
+        </div>
+        <div class="row">
+          <label>
+            <input type="checkbox" id="hideGeminiPromos" />
+            <span data-i18n="optHideGemini">Hide Gemini promos</span>
+          </label>
+        </div>
+        <div class="stack">
+          <div class="row">
+            <label>
+              <input type="checkbox" id="webOnly" aria-describedby="webOnlyHelp" />
+              <span data-i18n="optWebOnly">Web only results (no AI at all)</span>
+            </label>
+          </div>
+          <p class="help" id="webOnlyHelp" data-i18n="optWebOnlyHelp"></p>
+        </div>
+      </section>
+
+      <section>
+        <div class="stack">
+          <div class="row">
+            <a href="#" id="shortcuts" data-i18n="optShortcut">Change the keyboard shortcut</a>
+          </div>
+          <p class="muted" data-i18n="optShortcutHelp"></p>
+        </div>
+        <div class="row">
+          <label>
+            <input type="checkbox" id="debug" />
+            <span data-i18n="optDebug">Debug: outline detected blocks (and show them)</span>
+          </label>
+        </div>
+        <div class="row">
+          <button type="button" id="reset" data-i18n="btnReset">Reset to defaults</button>
+        </div>
+      </section>
+
+      <p class="muted" data-i18n="scopeNote"></p>
+    </main>
+  </body>
+</html>

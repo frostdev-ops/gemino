@@ -1,0 +1,195 @@
+//#region src/shared/dom.ts
+/** Typed getElementById that fails loudly when the page and script drift apart. */
+function byId(id) {
+	const el = document.getElementById(id);
+	if (!el) throw new Error(`Missing element #${id}`);
+	return el;
+}
+//#endregion
+//#region src/shared/i18n.ts
+var fallback = {
+	extName: {
+		"message": "Gemino",
+		"description": "Extension name."
+	},
+	extDescription: {
+		"message": "Hide, collapse, minimize, or blur Google's AI Overview, AI Mode, and Gemini prompts.",
+		"description": "Extension description shown in the store and on the extensions page (max 132 characters)."
+	},
+	cmdToggle: {
+		"message": "Turn Gemino on or off",
+		"description": "Keyboard shortcut description."
+	},
+	barCollapsed: {
+		"message": "AI Overview hidden. Click to expand.",
+		"description": "Collapsed bar label."
+	},
+	barExpanded: {
+		"message": "AI Overview shown. Click to collapse.",
+		"description": "Collapsed bar label while the block is expanded."
+	},
+	showMore: {
+		"message": "Show more",
+		"description": "Button under a minimized AI Overview."
+	},
+	showLess: {
+		"message": "Show less",
+		"description": "Button under an expanded, previously minimized AI Overview."
+	},
+	revealBlurred: {
+		"message": "Click to reveal AI Overview",
+		"description": "Overlay button on a blurred AI Overview."
+	},
+	popupTitle: {
+		"message": "Gemino",
+		"description": "Popup heading."
+	},
+	optEnabled: {
+		"message": "Enabled",
+		"description": "Master switch label."
+	},
+	optOverviewMode: {
+		"message": "AI Overview",
+		"description": "Label of the AI Overview mode picker."
+	},
+	modeShow: {
+		"message": "Show",
+		"description": "AI Overview mode: leave as is."
+	},
+	modeHide: {
+		"message": "Hide",
+		"description": "AI Overview mode: remove completely."
+	},
+	modeCollapse: {
+		"message": "Collapse",
+		"description": "AI Overview mode: slim bar that expands on click."
+	},
+	modeMinimize: {
+		"message": "Minimize",
+		"description": "AI Overview mode: short preview with a Show more button."
+	},
+	modeBlur: {
+		"message": "Blur",
+		"description": "AI Overview mode: blurred until revealed."
+	},
+	optHideAiMode: {
+		"message": "Hide AI Mode buttons and tabs",
+		"description": "Toggle label."
+	},
+	optHideGemini: {
+		"message": "Hide Gemini promos",
+		"description": "Toggle label."
+	},
+	optWebOnly: {
+		"message": "Web only results (no AI at all)",
+		"description": "Toggle label for the udm=14 redirect."
+	},
+	optWebOnlyHelp: {
+		"message": "Redirects searches to Google's plain Web results, which have no AI Overview. Images, News and other tabs are left alone.",
+		"description": "Help text under the Web only toggle."
+	},
+	btnRevealPage: {
+		"message": "Show everything on this page",
+		"description": "Popup button that temporarily reveals blocks in the current tab."
+	},
+	btnRehidePage: {
+		"message": "Hide again",
+		"description": "Popup button that re-applies the configured modes in the current tab."
+	},
+	statusHandled: {
+		"message": "Handled on this page: $COUNT$",
+		"description": "Popup status line.",
+		"placeholders": { "count": {
+			"content": "$1",
+			"example": "2"
+		} }
+	},
+	statusNotGoogle: {
+		"message": "Open a Google search page to see Gemino at work.",
+		"description": "Popup status line when the active tab is not a supported page."
+	},
+	linkOptions: {
+		"message": "All settings",
+		"description": "Popup link to the options page."
+	},
+	optionsTitle: {
+		"message": "Gemino settings",
+		"description": "Options page heading."
+	},
+	optMinimizeHeight: {
+		"message": "Minimized preview height",
+		"description": "Slider label (pixels)."
+	},
+	optBlurStrength: {
+		"message": "Blur strength",
+		"description": "Slider label (pixels)."
+	},
+	optBlurReveal: {
+		"message": "Reveal blurred AI Overview",
+		"description": "Select label."
+	},
+	revealHover: {
+		"message": "On hover",
+		"description": "Blur reveal option."
+	},
+	revealClick: {
+		"message": "On click",
+		"description": "Blur reveal option."
+	},
+	optDebug: {
+		"message": "Debug: outline detected blocks (and show them)",
+		"description": "Toggle label."
+	},
+	optShortcut: {
+		"message": "Change the keyboard shortcut",
+		"description": "Link to chrome://extensions/shortcuts."
+	},
+	optShortcutHelp: {
+		"message": "Default: Alt+Shift+G turns Gemino on or off. Open your browser's extension shortcuts page to change it.",
+		"description": "Help text next to the shortcut link."
+	},
+	btnReset: {
+		"message": "Reset to defaults",
+		"description": "Options button."
+	},
+	scopeNote: {
+		"message": "Gemino cannot change the browser's own Gemini or AI buttons (such as Chrome's Gemini button or Opera's Aria); those are part of the browser itself.",
+		"description": "Scope disclaimer on the options page."
+	},
+	pxUnit: {
+		"message": "$VALUE$ px",
+		"description": "Pixel value display.",
+		"placeholders": { "value": {
+			"content": "$1",
+			"example": "160"
+		} }
+	}
+};
+/**
+* Localized string. Uses chrome.i18n when running in the extension; falls back to the bundled
+* English catalog (tests, or a missing key in another locale). Substitution values replace $1.
+*/
+function t(key, ...subs) {
+	let msg = "";
+	try {
+		msg = chrome.i18n.getMessage(key, subs);
+	} catch {}
+	if (!msg) {
+		msg = fallback[key]?.message ?? key;
+		subs.forEach((s) => {
+			msg = msg.replace(/\$[A-Z_]+\$/, s);
+		});
+	}
+	return msg;
+}
+/** Fills text and attributes for elements marked with data-i18n / data-i18n-aria-label. */
+function localizeDocument(root = document) {
+	root.querySelectorAll("[data-i18n]").forEach((el) => {
+		el.textContent = t(el.dataset.i18n ?? "");
+	});
+	root.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
+		el.setAttribute("aria-label", t(el.dataset.i18nAriaLabel ?? ""));
+	});
+}
+//#endregion
+export { t as n, byId as r, localizeDocument as t };
