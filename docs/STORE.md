@@ -35,7 +35,7 @@ Artifacts come from `npm run package` (see the README):
 
 **Language**: English. Detection works for the locales in `src/content/detect/labels.ts`, but the interface is English only.
 
-**Screenshots** (1280x800): collapse bar on a results page; minimized preview; blurred overview; popup; options page. `npx tsx scripts/live-smoke.ts` writes full-page-size screenshots of each mode to `/tmp/gemino-live/` that can be cropped for this.
+**Screenshots**: Opera wants 612×408 (800×600 at most), on a white background, with no other extensions visible. `npx tsx scripts/opera-screenshots.ts` writes those to `release/opera/` from the built extension and a saved search page. Chrome Web Store shots can be larger; crop the same captures.
 
 ## Single purpose
 
@@ -96,18 +96,71 @@ rg -n "fetch\(|XMLHttpRequest|WebSocket|EventSource|sendBeacon|eval\(|new Functi
 
 ## Opera add-ons
 
-- Opera GX runs Chrome Manifest V3 extensions. Gemino is one build for both stores, with no browser-specific code.
-- **Tested status**: not tested in Opera GX or Opera. Opera was not available where this was built. Unit tests, Playwright end-to-end tests and a live smoke test were run in Chromium only. Do not state in the listing that it has been tested in Opera until `docs/QA.md` has been run there.
-- Opera's reviewers need the source for bundled code. Upload `gemino-<version>-source.zip` and give them these steps:
+Upload at [addons.opera.com](https://addons.opera.com/developer/). The form fields below follow [Opera's publishing guidelines](https://help.opera.com/en/extensions/publishing-guidelines/).
 
-  ```sh
-  # Node 22 or newer, npm 10 or newer
-  unzip gemino-<version>-source.zip -d gemino-src && cd gemino-src
-  npm ci
-  npm run build      # writes dist/, identical to the submitted package
-  ```
+| Field          | Value                                                                                |
+| -------------- | ------------------------------------------------------------------------------------ |
+| Package        | `release/gemino-<version>.zip` (manifest at the zip root)                            |
+| Source         | `release/gemino-<version>-source.zip` (bundled code; the build is unminified)        |
+| Name           | Gemino                                                                               |
+| Version        | `0.1.0` (from `package.json`; one to four dot-separated integers, no leading zeros)  |
+| Summary        | Hide, collapse, minimize, or blur Google's AI Overview, AI Mode, and Gemini prompts. |
+| Category       | Productivity                                                                         |
+| Support page   | https://github.com/frostdev-ops/gemino                                               |
+| Privacy policy | https://github.com/frostdev-ops/gemino/blob/main/PRIVACY.md                          |
+| Screenshots    | `release/opera/*.png`, each 612×408                                                  |
+| Icon           | `public/icons/icon-128.png`, also packed in the zip                                  |
 
-  `npm run build` first generates `public/rules/web_only.json` from `src/shared/google-domains.json`, type-checks, then bundles with Vite and CRXJS. It is unminified. The result was checked to be identical (`diff -r`) to the `dist/` of the repository it was packaged from.
+**License.** [MIT](../LICENSE). https://github.com/frostdev-ops/gemino/blob/main/LICENSE
+
+**Description** (paste into the long description):
+
+> Gemino lets you decide how Google's AI shows up on Google Search.
+>
+> The AI Overview can stay as it is, disappear, fold into a slim bar you click open, shrink to a short faded preview, or stay blurred until you hover or click. Collapse is the default.
+>
+> It can also hide the AI Mode tab and the AI Mode button in the search box, and hide links that send you to Gemini.
+>
+> An optional Web only setting sends searches to Google's plain Web results, which have no AI Overview. Images, News, and Videos are left alone.
+>
+> It runs on the regional Google domains. Changes apply to open tabs immediately. The toolbar popup can show everything on the current page, and Alt+Shift+G turns Gemino on or off.
+>
+> Gemino only runs on Google search pages. It collects no data and makes no network requests. It does not change Google's ads or organic results, and it cannot change Opera's own Aria button, because that is part of the browser.
+
+- Opera and Opera GX run this Manifest V3 package with no browser-specific code.
+- **Tested status**: built and checked in Chromium. Opera was not available where this was packaged. Do not claim an Opera test in the listing until `docs/QA.md` has been run there.
+
+### How to produce the build
+
+Paste this into Opera's "instructions to produce the build" field.
+
+**Environment**
+
+- OS: Arch Linux, kernel `7.2.5-3-omarchy`, `x86_64`. Any current Linux, macOS, or Windows machine is fine. The build does not use OS libraries.
+- Node.js `v26.8.2`
+- npm `11.19.1` (ships with that Node.js)
+- Yarn is not used. Grunt is not used. There is no global install step.
+- `npm ci` installs the locked toolchain: TypeScript `6.0.3`, Vite `8.3.2`, tsx `4.23.15`, `@crxjs/vite-plugin` `3.0.0`.
+- Info-ZIP `3.0` is used only by `npm run package`, to zip `dist/`. It is not required to produce `dist/` itself.
+- Node.js 22 or newer also works. The package was built with the versions above.
+
+**Commands**
+
+```sh
+# From the directory that contains gemino-0.1.0-source.zip
+unzip gemino-0.1.0-source.zip -d gemino-src
+cd gemino-src
+npm ci
+npm run build
+```
+
+`npm run build` does three things, in order:
+
+1. `tsx scripts/build-rules.ts` writes `public/rules/web_only.json` from `src/shared/google-domains.json`.
+2. `tsc --noEmit` type-checks.
+3. `vite build` bundles the extension with CRXJS. Output is unminified. `modulePreload` polyfill is off, so the bundle contains no `fetch`.
+
+The result is `dist/`. `gemino-0.1.0.zip` is that directory, with `manifest.json` at the archive root. To recreate the zip: `npm run package` (needs the `zip` command). Load `dist/` from `opera://extensions` with Developer mode on.
 
 - The Web only ruleset (`rules/web_only.json`) is 16 KB; the reviewer may regenerate it with `npm run rules`.
 - Keyboard shortcut: the manifest suggests `Alt+Shift+G`. Opera may handle shortcuts differently; confirm in `opera://extensions/shortcuts`.

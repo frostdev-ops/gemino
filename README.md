@@ -1,6 +1,6 @@
 <p align="center">
   <strong>Google search, without the AI in the way.</strong><br>
-  Hide, collapse, minimize, or blur the AI Overview. One extension for Chrome and Opera GX.
+  Hide, collapse, minimize, or blur the AI Overview. Chrome, Opera GX, and Safari.
 </p>
 
 <p align="center">
@@ -33,4 +33,14 @@ npm run build
 
 In Chrome, open `chrome://extensions`, turn on Developer mode, and load the `dist/` folder. In Opera GX, do the same from `opera://extensions`.
 
+Safari needs the Mac app. On a Mac with Xcode, run `./scripts/package-safari.sh`, open `safari/Gemino/Gemino.xcodeproj`, and run the Gemino scheme. Then turn Gemino on in Safari → Settings → Extensions. A generated copy of that project is already in `safari/`.
+
 `npm test` runs the unit tests. `npm run test:e2e` loads the built extension in Chromium against saved Google pages.
+
+## License
+
+[MIT](LICENSE).
+
+## Privacy
+
+Gemino does not collect or send any data. The [privacy policy](PRIVACY.md) is the full statement.

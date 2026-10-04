@@ -1,6 +1,7 @@
 {
   "name": "gemino",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "type": "module",
   "description": "Hide, collapse, minimize, or blur Google's AI Overview, AI Mode, and Gemini prompts.",

@@ -102,6 +102,7 @@ const SOURCE_ENTRIES = [
   '.prettierignore',
   '.gitignore',
   'README.md',
+  'LICENSE',
   'PRIVACY.md',
   'docs',
   'scripts',
