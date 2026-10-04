@@ -52,11 +52,11 @@ Web only is off unless you turn it on. When it is on, the browser itself adds `u
 
 ## Permissions
 
-| Permission | Why |
-| --- | --- |
+| Permission                                     | Why                                                                                        |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | Access to `https://www.google.<domain>/` pages | To find and restyle AI blocks. Only the home, search, and `webhp` pages on the `www` host. |
-| `storage` | To save your settings on the device. |
-| `declarativeNetRequestWithHostAccess` | For optional Web only mode. Limited to the Google hosts above, and off by default. |
+| `storage`                                      | To save your settings on the device.                                                       |
+| `declarativeNetRequestWithHostAccess`          | For optional Web only mode. Limited to the Google hosts above, and off by default.         |
 
 Gemino does not request permission to read your tabs, history, cookies, or every website.
 

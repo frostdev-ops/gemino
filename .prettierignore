@@ -4,3 +4,8 @@ tests/fixtures
 public/rules
 package-lock.json
 *.plan.md
+release
+safari/**/Assets.xcassets
+safari/Gemino/Gemino Extension/Resources
+safari/Gemino/Gemino/Resources/Base.lproj
+safari/Gemino/Gemino/Resources/Style.css

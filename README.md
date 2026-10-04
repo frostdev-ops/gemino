@@ -35,7 +35,13 @@ In Chrome, open `chrome://extensions`, turn on Developer mode, and load the `dis
 
 ## Safari
 
-Safari loads Gemino from a Mac app, not from the Chrome zip. You need a Mac with Xcode.
+Download the signed and notarized **Safari Mac app** from [GitHub Releases](https://github.com/frostdev-ops/gemino/releases/latest). It supports Intel and Apple Silicon Macs running macOS 12 or newer.
+
+1. Unzip `gemino-0.1.0-safari-macos.zip` and move `Gemino.app` into Applications.
+2. Open Gemino once, then choose **Quit and Open Safari Settings…**.
+3. In Safari Settings → Extensions, turn Gemino on. Allow access to the Google search sites where you want it to run.
+
+Safari loads Gemino from this Mac app. To build the app yourself, you need Xcode.
 
 A generated project is already in the repo. Open it and run it:
 
@@ -48,10 +54,22 @@ In Xcode, choose the Gemino scheme and press Run. When the app opens, choose **Q
 Rebuild the app after the extension changes:
 
 ```sh
-./scripts/package-safari.sh
+sh scripts/build-safari.sh
 ```
 
-That builds `dist/`, adjusts the manifest for Safari, and replaces `safari/` using `xcrun safari-web-extension-packager`. Then run the scheme again from Xcode so the app is signed with your development identity.
+That builds a universal Mac app in `release/Gemino.app`, signed with the configured Developer ID, while preserving the Xcode project and native code. Override `SAFARI_SIGN_IDENTITY` and `SAFARI_TEAM_ID` to use a different identity.
+
+For normal installation outside the App Store, Safari requires **Developer ID signing and notarization**. A valid code signature alone is insufficient. Use a saved `notarytool` Keychain profile:
+
+```sh
+NOTARY_PROFILE=your-profile sh scripts/build-safari.sh
+```
+
+Alternatively, set `ASC_KEY_PATH`, `ASC_KEY_ID`, and `ASC_ISSUER_ID` to use an existing App Store Connect API key.
+
+The script notarizes the app, staples the ticket, and verifies Gatekeeper acceptance before producing `release/gemino-0.1.0-safari-macos.zip`. Move `Gemino.app` into Applications, open it once, then enable Gemino in Safari Settings → Extensions. Without a profile, the ZIP is explicitly marked `unnotarized` and is for development only.
+
+`scripts/package-safari.sh` regenerates the Xcode project from scratch; it replaces native app edits. Use it only when you intend to regenerate the project.
 
 `npm test` runs the unit tests. `npm run test:e2e` loads the built extension in Chromium against saved Google pages.
 

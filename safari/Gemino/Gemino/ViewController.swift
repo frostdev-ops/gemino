@@ -27,12 +27,11 @@ class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHan
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: extensionBundleIdentifier) { (state, error) in
-            guard let state = state, error == nil else {
-                // Insert code to inform the user that something went wrong.
-                return
-            }
-
             DispatchQueue.main.async {
+                guard let state = state, error == nil else {
+                    self.showExtensionError(error)
+                    return
+                }
                 if #available(macOS 13, *) {
                     webView.evaluateJavaScript("show(\(state.isEnabled), true)")
                 } else {
@@ -42,13 +41,23 @@ class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHan
         }
     }
 
+    private func showExtensionError(_ error: Error?) {
+        let message = "Safari could not load Gemino. Install and open the signed, notarized Gemino app, then try again."
+        NSLog("Gemino Safari extension error: %@", String(describing: error))
+        guard let data = try? JSONSerialization.data(withJSONObject: [message]),
+              let json = String(data: data, encoding: .utf8) else { return }
+        webView.evaluateJavaScript("showError(\(json)[0])")
+    }
+
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if (message.body as! String != "open-preferences") {
-            return;
-        }
+        guard message.body as? String == "open-preferences" else { return }
 
         SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) { error in
             DispatchQueue.main.async {
+                if let error = error {
+                    self.showExtensionError(error)
+                    return
+                }
                 NSApplication.shared.terminate(nil)
             }
         }
