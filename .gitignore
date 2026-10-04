@@ -1,0 +1,8 @@
+dist/
+node_modules/
+*.zip
+test-results/
+playwright-report/
+.DS_Store
+qa-output/
+release/

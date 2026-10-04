@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gemino</title>
+  </head>
+  <body class="popup">
+    <main>
+      <header class="row">
+        <h1 data-i18n="popupTitle">Gemino</h1>
+        <label>
+          <input type="checkbox" id="enabled" />
+          <span data-i18n="optEnabled">Enabled</span>
+        </label>
+      </header>
+
+      <fieldset id="modeGroup">
+        <legend data-i18n="optOverviewMode">AI Overview</legend>
+        <div class="segmented" role="radiogroup">
+          <label
+            ><input type="radio" name="mode" value="show" /><span data-i18n="modeShow"
+              >Show</span
+            ></label
+          >
+          <label
+            ><input type="radio" name="mode" value="hide" /><span data-i18n="modeHide"
+              >Hide</span
+            ></label
+          >
+          <label
+            ><input type="radio" name="mode" value="collapse" /><span data-i18n="modeCollapse"
+              >Collapse</span
+            ></label
+          >
+          <label
+            ><input type="radio" name="mode" value="minimize" /><span data-i18n="modeMinimize"
+              >Minimize</span
+            ></label
+          >
+          <label
+            ><input type="radio" name="mode" value="blur" /><span data-i18n="modeBlur"
+              >Blur</span
+            ></label
+          >
+        </div>
+      </fieldset>
+
+      <div class="row">
+        <label>
+          <input type="checkbox" id="hideAiModeEntryPoints" />
+          <span data-i18n="optHideAiMode">Hide AI Mode buttons and tabs</span>
+        </label>
+      </div>
+      <div class="row">
+        <label>
+          <input type="checkbox" id="hideGeminiPromos" />
+          <span data-i18n="optHideGemini">Hide Gemini promos</span>
+        </label>
+      </div>
+      <div class="stack">
+        <div class="row">
+          <label>
+            <input type="checkbox" id="webOnly" aria-describedby="webOnlyHelp" />
+            <span data-i18n="optWebOnly">Web only results (no AI at all)</span>
+          </label>
+        </div>
+        <p class="help" id="webOnlyHelp" data-i18n="optWebOnlyHelp"></p>
+      </div>
+
+      <p class="muted" id="status" role="status"></p>
+      <div class="row">
+        <button type="button" id="reveal" data-i18n="btnRevealPage">
+          Show everything on this page
+        </button>
+        <a href="#" id="openOptions" data-i18n="linkOptions">All settings</a>
+      </div>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

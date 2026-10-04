@@ -1,0 +1,6 @@
+dist
+node_modules
+tests/fixtures
+public/rules
+package-lock.json
+*.plan.md

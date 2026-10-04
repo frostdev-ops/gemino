@@ -1,0 +1,12 @@
+body.popup {
+  width: 340px;
+}
+body.popup main {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+body.popup header {
+  padding-top: 0;
+}

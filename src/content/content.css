@@ -1,0 +1,54 @@
+/* Visual modes. Gemino only sets data-gemino-* attributes; everything visual lives here. */
+
+/* hide */
+[data-gemino-mode='hide'] {
+  display: none !important;
+}
+
+/* collapse: hidden until the user opens it through the bar */
+[data-gemino-mode='collapse']:not([data-gemino-open]) {
+  display: none !important;
+}
+
+/* minimize: short preview with a fade */
+[data-gemino-mode='minimize']:not([data-gemino-open]) {
+  max-height: var(--gemino-preview, 160px) !important;
+  overflow: hidden !important;
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+}
+
+/* blur: the block's children are blurred so the reveal overlay (a child) stays sharp */
+[data-gemino-mode='blur'] {
+  position: relative;
+}
+[data-gemino-mode='blur']:not([data-gemino-open]) > :not([data-gemino-host]) {
+  filter: blur(var(--gemino-blur, 8px));
+  user-select: none;
+  transition: filter 0.15s ease;
+}
+[data-gemino-mode='blur'][data-gemino-reveal='hover']:is(:hover, :focus-within)
+  > :not([data-gemino-host]) {
+  filter: none;
+}
+[data-gemino-mode='blur'][data-gemino-reveal='click']:not([data-gemino-open])
+  > :not([data-gemino-host]) {
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-gemino-mode='blur']:not([data-gemino-open]) > :not([data-gemino-host]) {
+    transition: none;
+  }
+}
+
+/* debug: outline everything Gemino detected (blocks are shown while debugging) */
+html[data-gemino-debug] [data-gemino-target] {
+  outline: 2px dashed #e5484d !important;
+  outline-offset: 2px;
+}
+html[data-gemino-debug] [data-gemino-target='aiModeEntry'] {
+  outline-color: #3e63dd !important;
+}
+html[data-gemino-debug] [data-gemino-target='geminiPromo'] {
+  outline-color: #30a46c !important;
+}
